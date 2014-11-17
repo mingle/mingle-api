@@ -1,0 +1,20 @@
+* Error handling
+** auth failure
+** Mingle's 5xx error
+** 4xx errors
+** Parse error message if Mingle responds
+** 3xx errors?
+* Card type api
+* property definition api
+* Card APIs
+** get all card attributes
+** update card
+** delete card
+** attachments
+** transitions
+* Project APIs
+** get all project attributes
+* MQL execution
+* Favorite APIs
+* User APIs
+* option to turn off OpenSSL::SSL::VERIFY_NONE
