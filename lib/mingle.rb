@@ -49,15 +49,15 @@ class Mingle
     OpenStruct.new(:identifier => identifier, :name => name, :url => url('projects', identifier))
   end
 
-  def cards(project_identifier)
-    list(fetch(:projects, project_identifier, :cards), CARD)
+  def cards(project)
+    list(fetch(:projects, project_identifier(project), :cards), CARD)
   end
 
-  def card(project_identifier, number)
-    ostruct(fetch(:projects, project_identifier, :cards, number), CARD)
+  def card(project, number)
+    ostruct(fetch(:projects, project_identifier(project), :cards, number), CARD)
   end
 
-  def create_card(project_identifier, attrs)
+  def create_card(project, attrs)
     params = [
       ["card[name]", attrs[:name]],
       ["card[card_type_name]", attrs[:type]],
@@ -72,9 +72,9 @@ class Mingle
       params << ["card[properties][][name]", name]
       params << ["card[properties][][value]", value]
     end
-    resp = @http.post(v2(:projects, project_identifier, :cards), params)
+    resp = @http.post(v2(:projects, project_identifier(project), :cards), params)
     number = resp[2]["location"].split("/").last.split('.').first
-    OpenStruct.new(:number => number, :url => url('projects', project_identifier, 'cards', number))
+    OpenStruct.new(:number => number, :url => url('projects', project_identifier(project), 'cards', number))
   end
 
   def site_api_url
@@ -86,6 +86,10 @@ class Mingle
   end
 
   private
+  def project_identifier(proj)
+    proj.respond_to?(:identifier) ? proj.identifier : proj.to_s
+  end
+
   def url(*parts)
     File.join(site_url, *parts)
   end

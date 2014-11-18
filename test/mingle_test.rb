@@ -31,6 +31,8 @@ class MingleTest < Minitest::Test
     mingle = create_hmac_auth_mingle
     cards = mingle.cards('your_first_project')
     assert cards.size > 0
+    cards = mingle.cards(OpenStruct.new(:identifier => 'your_first_project'))
+    assert cards.size > 0
   end
 
   def test_find_card_by_number
@@ -41,7 +43,7 @@ class MingleTest < Minitest::Test
     assert_equal 'New', card1.status
     assert_equal 'xli_test100', card1.owner
 
-    card2 = mingle.card('your_first_project', 2)
+    card2 = mingle.card(OpenStruct.new(:identifier => 'your_first_project'), 2)
     assert_equal 'card name', card2.name
     assert_equal 'Story', card2.type
     assert_equal 'New', card2.status
@@ -60,5 +62,12 @@ class MingleTest < Minitest::Test
     assert_equal 'Story', card.type
     assert_equal 'New', card.status
     assert_equal 'Must', card.priority
+  end
+
+  def test_create_simple_card
+    mingle = create_hmac_auth_mingle
+    card = mingle.create_card(OpenStruct.new(:identifier => 'your_first_project'), name: 'must have card name and type', type: 'Story')
+    assert card.number
+    assert_equal "https://xiao-test100.mingle.thoughtworks.com/projects/your_first_project/cards/#{card.number}", card.url
   end
 end
