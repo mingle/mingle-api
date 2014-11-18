@@ -46,7 +46,7 @@ class Mingle
       "project[template]" => false,
       "template_name" => options[:template] ? "yml_#{options[:template]}_template" : nil
     })
-    OpenStruct.new(:identifier => identifier, :url => url('projects', identifier))
+    OpenStruct.new(:identifier => identifier, :name => name, :url => url('projects', identifier))
   end
 
   def cards(project_identifier)

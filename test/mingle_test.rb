@@ -20,6 +20,7 @@ class MingleTest < Minitest::Test
     mingle = create_basic_auth_mingle
     project = mingle.create_project("Hello #{t.to_i}", description: "proj created at #{t}", template: 'kanban')
     assert_equal "hello_#{t.to_i}", project.identifier
+    assert_equal "Hello #{t.to_i}", project.name
     assert_equal "https://xiao-test100.mingle.thoughtworks.com/projects/hello_#{t.to_i}", project.url
 
     proj = mingle.project(project.identifier)
