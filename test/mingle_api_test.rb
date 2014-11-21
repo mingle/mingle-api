@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MingleTest < Minitest::Test
+class MingleAPITest < Minitest::Test
   def test_projects
     mingle = create_basic_auth_mingle
     first_proj = mingle.projects.find{|proj| proj.identifier == 'your_first_project'}

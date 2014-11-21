@@ -18,3 +18,4 @@
 * Favorite APIs
 * User APIs
 * option to turn off OpenSSL::SSL::VERIFY_NONE
+* fix mingle-api gem require problem

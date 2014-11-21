@@ -25,15 +25,16 @@ Or install it yourself as:
 
 ### Initialize with HMac Auth for SaaS Mingle site
 
-    mingle = Mingle.new('site-name', hmac: [username, secret_key])
+    require 'mingle-api'
+    mingle = MingleAPI.new('site-name', hmac: [username, secret_key])
 
 ### Initialize with Basic Auth for SaaS Mingle site
 
-    mingle = Mingle.new('site-name', basic_auth: [username, password])
+    mingle = MingleAPI.new('site-name', basic_auth: [username, password])
 
 ### Initialize with HMac for onsite Mingle site
 
-    mingle = Mingle.new('https://your-mingle-site-url', hmac: [username, secret_key])
+    mingle = MingleAPI.new('https://your-mingle-site-url', hmac: [username, secret_key])
 
 ### Get all projects
 
@@ -86,7 +87,7 @@ See .rbenv-vars file for environment variables need for test.
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/mingle-api/fork )
+1. Fork it ( https://github.com/ThoughtWorksStudios/mingle-api/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

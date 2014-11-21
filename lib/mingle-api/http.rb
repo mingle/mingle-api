@@ -3,7 +3,7 @@ require 'net/https'
 require 'net/http/post/multipart'
 require 'api-auth'
 
-class Mingle
+class MingleAPI
   class Http
     class Error < StandardError
       def initialize(request_class, url, response)

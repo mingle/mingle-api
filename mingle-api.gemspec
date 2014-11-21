@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mingle/api/version'
+require 'mingle-api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mingle-api"
-  spec.version       = Mingle::Api::VERSION
+  spec.version       = MingleAPI::VERSION
   spec.authors       = ["Xiao Li"]
   spec.email         = ["swing1979@gmail.com"]
   spec.summary       = %q{[The Mingle API gem provides simple interface for you to build ruby application talks to Mingle.}

@@ -1,4 +1,4 @@
-class Mingle
+class MingleAPI
   class Macro
     def text(node, css)
       if ret = node.at_css(css)
